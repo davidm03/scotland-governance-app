@@ -101,7 +101,7 @@ $(document).ready(function() {
                     axisY:{ 
                         title: "Change",
                         includeZero: false, 
-                        interval: .5,
+                        interval: 5,
                         suffix: "%",
                         valueFormatString: "#.0"
                     },
