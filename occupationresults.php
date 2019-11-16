@@ -8,6 +8,7 @@ $req_result = $_POST['jobInput'];
         <li><a href="index.php">Home</a></li>
         <li><a href="occupations.php">Occupations</a></li>        
         <li>Occupation Results</li>
+        <!-- <div id="chartContainer" style="height: 250px; width:350px;"> </div> -->
     </ul>
 </article>
 
@@ -42,8 +43,40 @@ $(document).ready(function() {
             $('<h1/>',{text: result.title}).appendTo('#content');
             $('<p/>',{text: result.description}).appendTo('#content');
             $('<h4/>',{text: 'Occupational Statistics', style: 'text-align: center'}).appendTo('#content');
+            $('<div/>',{id: 'chartContainer', style: 'width: 50%;'}).appendTo('#content');
+         
+
+            var request = "http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=" + result.soc;
+            var req = $.ajax({
+                url: request,
+                dataType: "jsonp"
+            });
+            req.done(function(data){
+                if (data.series && data.series.length > 0) {
+                    console.log(data);
+
+                    var dps = [];
+                    for(var element in data.series) {
+                        dps.push({label: data.series[element].year, y: data.series[element].estpay});
+                    }
+
+                    var chart = new CanvasJS.Chart("chartContainer",
+                    {   title: {text: 'Rate of Pay (Per Week) Comparison'},     
+                        data: [
+                        {
+                            type: "column",
+                            dataPoints: dps
+                        }					
+                        ]
+                    });
+
+                    chart.render();
+                }
+            });      
 
 
+
+            
             
         }
 
@@ -57,7 +90,7 @@ $(document).ready(function() {
             req.done(function(data){
                 if (data.series && data.series.length > 0) {
                     $.each(data.series, function(index, value){
-                    result.push(value.year);
+                    result.push(value.year); 
                     });
                 }
             });
