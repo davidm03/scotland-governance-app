@@ -1,0 +1,30 @@
+/* ALL THE CSS CODE IN THIS STYLESHEET IS DESIGNED TO BE RENDERED AT THE BOTTOM OF A WEBPAGE AFTER THE JAVASCRIPT HAS RAN */
+
+/* Code for responsive 2 div's beside each other */
+.wrapper div {
+    min-height: 200px;
+    padding-top: 10px;
+}
+  #one {
+    float:left; 
+    width:50%;
+}
+  #two { 
+    float: right;
+    width: 50%;
+    min-height:170px;
+}
+  
+@media screen and (max-width: 1024px) {
+    #one { 
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;    
+    }
+    #two {
+        float: none;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}

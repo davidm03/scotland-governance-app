@@ -1,6 +1,6 @@
 <?php 
 include("includes/header.php");
-$req_result = $_POST['jobInput'];
+$search_input = $_POST['jobInput'];
 ?>
 
 <article class="content" id="content">
@@ -8,13 +8,12 @@ $req_result = $_POST['jobInput'];
         <li><a href="index.php">Home</a></li>
         <li><a href="occupations.php">Occupations</a></li>        
         <li>Occupation Results</li>
-        <!-- <div id="chartContainer" style="height: 250px; width:350px;"> </div> -->
     </ul>
 </article>
 
 <script>
 $(document).ready(function() {
-        var input = '<?php echo $req_result ?>';
+        var input = '<?php echo $search_input ?>';
 
         // if the input string contains a blank space 
         if(input.indexOf(' ')>=0) {
@@ -43,8 +42,9 @@ $(document).ready(function() {
             $('<h1/>',{text: result.title}).appendTo('#content');
             $('<p/>',{text: result.description}).appendTo('#content');
             $('<h4/>',{text: 'Occupational Statistics', style: 'text-align: center'}).appendTo('#content');
-            $('<div/>',{id: 'barGraph', style: 'width: 50%;'}).appendTo('#content');
-            $('<div/>',{id: 'lineGraph', style: 'width: 50%; float: right;'}).appendTo('#content');
+            $('<div/>',{id: 'chartContainer', class: 'wrapper'}).appendTo('#content');
+            $('<div/>',{id: 'one'}).appendTo('#chartContainer');
+            $('<div/>',{id: 'two'}).appendTo('#chartContainer');
          
 
             var estPayApi = "http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=" + result.soc;
@@ -61,7 +61,7 @@ $(document).ready(function() {
                         payData.push({label: data.series[element].year, y: data.series[element].estpay});
                     }
 
-                    var chart = new CanvasJS.Chart("barGraph",
+                    var chart = new CanvasJS.Chart("one",
                     {   title: {text: 'Rate of Pay (Per Week) Comparison'},     
                         data: [
                         {
@@ -90,7 +90,7 @@ $(document).ready(function() {
                         changeData.push({x: data.annual_changes[element].year, y: data.annual_changes[element].change});
                     }
 
-                    var chart2 = new CanvasJS.Chart("lineGraph", {
+                    var chart2 = new CanvasJS.Chart("two", {
 
                     title:{
                         text: "Annual Pay Rate Change"
@@ -120,7 +120,7 @@ $(document).ready(function() {
             
         }
 
-        function getEstimatedPayYears(soc){
+        /* function getEstimatedPayYears(soc){
             var request = "http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=" + soc;
             var result = []; 
             var req = $.ajax({
@@ -188,9 +188,11 @@ $(document).ready(function() {
                 }
             });  
             return result;
-        }          
+        }  */         
 });
 </script>
+
+<link rel="stylesheet" href="css/website-2nd.css">
 
 <?php 
 include("includes/aside.php");
