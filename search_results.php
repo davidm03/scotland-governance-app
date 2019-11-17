@@ -14,6 +14,7 @@ $search_input = $_POST['postcodeInput'];
 <script>
 $(document).ready(function() {
         var input = '<?php echo $search_input ?>';
+        var mspID;
 
         // if the input string contains a blank space 
         if(input.indexOf(' ')>=0) {
@@ -66,6 +67,7 @@ $(document).ready(function() {
                 $.each(data, function(index, constituency){
                     if(constituency.ConstituencyID == constit_id && constituency.ValidUntilDate == null){
                         console.log(constituency);
+                        mspID = constituency.PersonID;
                         getMSP(constituency.PersonID); 
                     }
                 });
@@ -83,9 +85,7 @@ $(document).ready(function() {
             req.done(function(msp){
                 console.log(msp);                
                 $('<p/>',{text: 'MSP: ' + formatMSPName(msp.ParliamentaryName)}).appendTo('#content');
-                $('<p/>',{text: 'MSP: ' + formatMSPName(msp.ParliamentaryName)}).appendTo('#content');
-                $('<p/>',{text: 'MSP: ' + formatMSPName(msp.ParliamentaryName)}).appendTo('#content');
-
+                getMemberParty(msp.PersonID);
             });
         }
 
@@ -96,6 +96,55 @@ $(document).ready(function() {
             var firstName = name.substr(index + 1);
 
             return firstName + " " + secondName;
+        }
+
+        function getMemberParty(personID){
+            var requestURL = "https://data.parliament.scot/api/memberparties";
+
+            var req = $.ajax({
+            url: requestURL,
+            dataType: "json"
+            });
+            req.done(function(memberParty){
+                $.each(memberParty, function(index, member){
+                    if(member.PersonID == personID && member.ValidUntilDate == null){
+                        console.log(member);
+                        getParty(member.PartyID);
+                    }
+                });
+
+            });
+        }
+
+        function getParty(partyID){
+            var requestURL = "https://data.parliament.scot/api/parties?ID=" + partyID;
+
+            var req = $.ajax({
+            url: requestURL,
+            dataType: "json"
+            });
+            req.done(function(party){
+                $('<p/>',{text: 'MSP Party: ' + party.ActualName}).appendTo('#content');
+                getAddress(mspID);
+            });
+        }
+
+        function getAddress(personID){
+            var requestURL = "https://data.parliament.scot/api/addresses";
+
+            var req = $.ajax({
+            url: requestURL,
+            dataType: "json"
+            });
+            req.done(function(data){
+                $.each(data, function(index, address){
+                    if(address.PersonID == personID && address.AddressTypeID!=1){
+                        console.log(address);
+                        $('<p/>',{text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode}).appendTo('#content');
+                    }
+                });             
+                
+            });
         }
 
 });
