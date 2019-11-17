@@ -28,29 +28,76 @@ $(document).ready(function() {
         var req = $.ajax({
         url: requestURL,
         dataType: "jsonp"
-    });
+        });
         req.done(function(data){
             console.log(data.result);
             var constit_code = data.result.codes.scottish_parliamentary_constituency;
             console.log(constit_code);
+            getConstituency(constit_code);
         });
         
-        //do this tmorrow
         function getConstituency(constit_code){
-            var requestURL = "https://api.postcodes.io/scotland/postcodes/" + constit_code;
-
-            console.log(requestURL);
+            var requestURL = "https://data.parliament.scot/api/constituencies";
 
             var req = $.ajax({
             url: requestURL,
-            dataType: "jsonp"
+            dataType: "json"
             });
             req.done(function(data){
-                console.log(data.result);
-                var constit_code = data.result.codes.scottish_parliamentary_constituency;
-                console.log(constit_code);
+                $.each(data, function (index, constituency){
+                    //console.log(index, constituency);
+                    if(constituency.ConstituencyCode == constit_code && constituency.ValidUntilDate == null){
+                        console.log(constituency);
+                        $('<h1/>',{text: constituency.Name + ' - Area Breakdown'}).appendTo('#content');
+                        getPersonID(constituency.ID);
+                    }
+                });
             });
         }
+
+        function getPersonID(constit_id){
+            var requestURL = "https://data.parliament.scot/api/MemberElectionConstituencyStatuses";
+
+            var req = $.ajax({
+            url: requestURL,
+            dataType: "json"
+            });
+            req.done(function(data){
+                $.each(data, function(index, constituency){
+                    if(constituency.ConstituencyID == constit_id && constituency.ValidUntilDate == null){
+                        console.log(constituency);
+                        getMSP(constituency.PersonID); 
+                    }
+                });
+                
+            });
+        }
+
+        function getMSP(personID){
+            var requestURL = "https://data.parliament.scot/api/members?ID=" + personID;
+
+            var req = $.ajax({
+            url: requestURL,
+            dataType: "json"
+            });
+            req.done(function(msp){
+                console.log(msp);                
+                $('<p/>',{text: 'MSP: ' + formatMSPName(msp.ParliamentaryName)}).appendTo('#content');
+                $('<p/>',{text: 'MSP: ' + formatMSPName(msp.ParliamentaryName)}).appendTo('#content');
+                $('<p/>',{text: 'MSP: ' + formatMSPName(msp.ParliamentaryName)}).appendTo('#content');
+
+            });
+        }
+
+        function formatMSPName(name){
+            name = String(name);
+            var index = name.indexOf(", ");
+            var secondName = name.substr(0, index);
+            var firstName = name.substr(index + 1);
+
+            return firstName + " " + secondName;
+        }
+
 });
 </script>
 

@@ -46,7 +46,7 @@ $(document).ready(function() {
             $('<div/>',{id: 'one'}).appendTo('#chartContainer');
             $('<div/>',{id: 'two'}).appendTo('#chartContainer');
          
-
+            //seperate into functions?
             var estPayApi = "http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=" + result.soc;
             var estPayReq = $.ajax({
                 url: estPayApi,
@@ -75,6 +75,7 @@ $(document).ready(function() {
                 }
             });
 
+            //function? 
             //line
             var changeApi = "http://api.lmiforall.org.uk/api/v1/ashe/annualChanges?soc=" + result.soc;
             var changeReq = $.ajax({
@@ -192,6 +193,7 @@ $(document).ready(function() {
 });
 </script>
 
+<!-- 2nd CSS Sheet Rendered Here To Load After Dynamic JS Page Content -->
 <link rel="stylesheet" href="css/website-2nd.css">
 
 <?php 
