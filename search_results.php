@@ -14,6 +14,7 @@ $search_input = $_POST['postcodeInput'];
 <script>
 $(document).ready(function() {
         var input = '<?php echo $search_input ?>';
+        var ward;
         var mspID;
 
         // if the input string contains a blank space 
@@ -50,6 +51,7 @@ $(document).ready(function() {
                     if(constituency.ConstituencyCode == constit_code && constituency.ValidUntilDate == null){
                         console.log(constituency);
                         $('<h1/>',{text: constituency.Name + ' - Area Breakdown'}).appendTo('#content');
+                        ward = constituency.Name;
                         getPersonID(constituency.ID);
                     }
                 });
@@ -67,7 +69,6 @@ $(document).ready(function() {
                 $.each(data, function(index, constituency){
                     if(constituency.ConstituencyID == constit_id && constituency.ValidUntilDate == null){
                         console.log(constituency);
-                        mspID = constituency.PersonID;
                         getMSP(constituency.PersonID); 
                     }
                 });
@@ -83,7 +84,8 @@ $(document).ready(function() {
             dataType: "json"
             });
             req.done(function(msp){
-                console.log(msp);                
+                console.log(msp);
+                mspID = msp.PersonID;                
                 $('<p/>',{text: 'MSP: ' + formatMSPName(msp.ParliamentaryName)}).appendTo('#content');
                 getMemberParty(msp.PersonID);
             });
@@ -141,10 +143,52 @@ $(document).ready(function() {
                     if(address.PersonID == personID && address.AddressTypeID!=1){
                         console.log(address);
                         $('<p/>',{text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode}).appendTo('#content');
+                        $('<h3/>',{text: ward + ' - Area Statistics'}).appendTo('#content');
+                        drawCharts();
                     }
                 });             
                 
             });
+        }
+
+        function drawCharts(){
+            $('<div/>',{id: 'chartContainer', class: 'wrapper'}).appendTo('#content');
+            $('<div/>',{id: 'one'}).appendTo('#chartContainer');
+            $('<div/>',{id: 'two'}).appendTo('#chartContainer');
+
+            var requestURL = "http://api.lmiforall.org.uk/api/v1/census/jobs_breakdown?area=" + input;
+
+            var req = $.ajax({
+            url: requestURL,
+            dataType: "json"
+            });
+            req.done(function(data){
+                console.log(data.jobsBreakdown);
+                var breakdownData = [];
+                for(var element in data.jobsBreakdown) {
+                    breakdownData.push({y: data.jobsBreakdown[element].percentage, label: data.jobsBreakdown[element].description});
+                }
+
+                var chart = new CanvasJS.Chart("one", {
+                title: {
+                    text: "Job Breakdown"
+                },
+                subtitles: [{
+                    text: ward,
+                    fontSize: 16
+                }],
+                data: [{
+                    type: "pie",
+                    indexLabelFontSize: 15,
+                    radius: 300,
+                    indexLabel: "{label} - {y}",
+                    yValueFormatString: "###0.0\"%\"",
+                    dataPoints: breakdownData
+                }]
+            });
+            chart.render();
+                
+            });            
         }
 
 });
