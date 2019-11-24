@@ -38,19 +38,19 @@ $(document).ready(function() {
             getConstituency(constit_code);
         });
         
-        function getConstituency(constit_code){
+        function getConstituency(constit_code) {
             var requestURL = "https://data.parliament.scot/api/constituencies";
 
             var req = $.ajax({
-            url: requestURL,
-            dataType: "json"
+                url: requestURL,
+                dataType: "json"
             });
-            req.done(function(data){
-                $.each(data, function (index, constituency){
+            req.done(function (data) {
+                $.each(data, function (index, constituency) {
                     //console.log(index, constituency);
-                    if(constituency.ConstituencyCode == constit_code && constituency.ValidUntilDate == null){
+                    if (constituency.ConstituencyCode == constit_code && constituency.ValidUntilDate == null) {
                         console.log(constituency);
-                        $('<h1/>',{text: constituency.Name + ' - Area Breakdown'}).appendTo('#content');
+                        $('<h1/>', { text: constituency.Name + ' - Area Breakdown' }).appendTo('#content');
                         ward = constituency.Name;
                         getPersonID(constituency.ID);
                     }

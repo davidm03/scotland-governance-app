@@ -9,7 +9,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem.</p>
 
     <div class="thinborder" style="padding-bottom: 20px;">
-    <form method="post" action="search_results.php">
+    <form method="POST" action="search_results.php">
       <label style="padding-left: 30px;">Enter your postcode:</label> 
       <input type="text" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
       <div style="text-align: center; padding: 10px 0;"><input type="submit" value="Submit"></div>

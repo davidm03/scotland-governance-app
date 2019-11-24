@@ -1,9 +1,9 @@
 <div id="asideContainer" style="margin-right: 30px;">
   <aside class="sideTop thinborder" style="margin-bottom: 30px;">
     <h4 style="text-align:center; padding: 10px 0;">Quick Search</h4>
-    <form action="/action_page.php">
+    <form action="search_results.php" method="POST">
       <label style="padding-left: 30px;">Enter your postcode:</label> 
-      <input type="text" name="quickPostcode" style="margin: 10px 30px 0 30px;"><br>
+      <input type="text" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
       <div style="text-align: center; padding: 10px 0;"><input type="submit" value="Submit"></div>
     </form>
   </aside>
