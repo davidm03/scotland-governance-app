@@ -19,8 +19,8 @@
     h1 {padding-left:0 !important; text-align: center !important;}
     #asideContainer {margin: 0 !important; padding: 0 15px !important;}
 }
-  
-  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) 
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) 
      Altered - used to be max-width: 600px
   */
 @media screen and (max-width: 700px) {
@@ -266,3 +266,13 @@ ul.breadcrumb li a:hover {
 	z-index: 9999;
 	background: url(images/loading.gif) center no-repeat #fff;
 }
+
+.vacancy{
+	border: 1px solid #222e50;
+  border-radius: 5px !important;
+  padding: 10px 30px 10px 30px;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+@media screen and (max-width: 400px){.vacancy{font-size: 0.71em;}}

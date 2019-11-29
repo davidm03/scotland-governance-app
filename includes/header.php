@@ -24,7 +24,7 @@
     <header class="main-head">
       <div class="topnav1" id="navTop">
         <a href="index.php"><img src="https://via.placeholder.com/150x100" id="websiteLogo" alt="Website Logo Placeholder" title="Placeholder Image for the Website Logo"></a>
-        <div id="websiteNameText" style="font-size: 3em; color: #ffffff; margin-left: 30px;">Website Name</div>
+        <div id="websiteNameText" style="font-size: 3em; color: #ffffff; margin-left: 30px;"><a href="index.php" style="text-decoration: none; color: #ffffff">Website Name</a></div>
       </div>
 
       <div class="topnav" id="navBottom">
