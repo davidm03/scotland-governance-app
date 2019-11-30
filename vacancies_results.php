@@ -22,7 +22,7 @@ if(isset($_POST['postcodeInput'])){
 }
 </style>
 
-<!-- <div class="pre-load"></div> -->
+<div class="pre-load"></div>
 
 <article class="content" id="content">
     <ul class="breadcrumb">
@@ -87,10 +87,12 @@ $(document).ready(function() {
             $('<p/>',{text: 'Job Description: '}).appendTo('#vacancy'+i);
             $('<p/>',{text: vacancies[i].summary}).appendTo('#vacancy'+i);
             $('<center/>',{id: 'center' + i}).appendTo('#vacancy'+i);
-            $('<input/>',{type: 'submit', value: 'View', onclick: }).appendTo('#center'+i);
+            $('<input/>',{type: 'submit', value: 'View', onclick: "location.href=" + "'" + vacancies[i].link + "'"}).appendTo('#center'+i);
         }
 
     }
+
+    $(".pre-load").fadeOut("slow");
 
     
 });

@@ -78,7 +78,7 @@ $(document).ready(function() {
                     }
 
                     var chart = new CanvasJS.Chart("one",
-                    {   title: {text: 'Rate of Pay (Per Week) Comparison'},     
+                    {   title: {text: 'Rate of Pay (Per Week) Comparison', fontFamily: 'Roboto'},     
                         data: [
                         {
                             type: "column",
@@ -110,7 +110,8 @@ $(document).ready(function() {
                     var chart2 = new CanvasJS.Chart("two", {
 
                     title:{
-                        text: "Annual Pay Rate Change"
+                        text: "Annual Pay Rate Change",
+                        fontFamily: 'Roboto'
                     },
                     axisX:{
                         valueFormatString: "#"

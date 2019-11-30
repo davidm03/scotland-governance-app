@@ -187,11 +187,12 @@ $(document).ready(function() {
 
                 var chart = new CanvasJS.Chart("one", {
                 title: {
-                    text: "Job Breakdown"
+                    text: "Job Breakdown", fontFamily: 'Roboto'
                 },
                 subtitles: [{
                     text: ward,
-                    fontSize: 16
+                    fontSize: 16,
+                    fontFamily: 'Roboto'
                 }],
                 data: [{
                     type: "pie",

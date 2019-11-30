@@ -15,7 +15,7 @@
       <div style="text-align: center; padding: 10px 0;"><input type="submit" value="Submit"></div>
     </form>
 
-    <label style="padding: 0 30px;">View our interactive Scottish constituencies map <a href="map.php">here</a></label> 
+    <p style="padding: 0 30px; text-align: center;">View our interactive Scottish constituencies map <a href="map.php">here</a></p> 
     </div>
 
     
