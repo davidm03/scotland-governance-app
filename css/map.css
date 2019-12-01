@@ -1,7 +1,10 @@
 .testSVG path:hover{
     opacity: 0.6 !important;
+    cursor: pointer;
 }
-.testSVG{max-width: 100%;}
+.testSVG{
+    max-width: 100%;
+}
 
 #tooltip {
     background: cornsilk;

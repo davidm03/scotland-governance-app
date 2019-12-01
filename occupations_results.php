@@ -50,7 +50,9 @@ $(document).ready(function() {
                var result = data[0];
 
                populatePage(result);
-
+            }
+            else{
+                noResultsFound();
             }
         });  
 

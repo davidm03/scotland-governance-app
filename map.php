@@ -24,7 +24,6 @@
     , controlIconsEnabled: true
     , zoomEnabled: true
     , dblClickZoomEnabled: true
-    , mouseWheelZoomEnabled: false
     , preventMouseEventsDefault: true
     , zoomScaleSensitivity: 0.2
     , minZoom: 0.5
