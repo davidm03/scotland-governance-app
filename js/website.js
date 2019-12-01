@@ -1,3 +1,6 @@
+//JAVASCRIPT FILE CONTAINING VARIOUS FUNCTIONS USED THROUGHOUT THE WEBSITE
+
+//FUNCTION TO DISPLAY NO RESULTS FOUND MESSAGE
 function noResultsFound() {
     $('<h1/>', { text: 'Sorry - No Results Could Be Found' }).appendTo('#content');
     $('<p/>', { id: 'txtError', text: 'You can return home by clicking the link ' }).appendTo('#content');
@@ -6,6 +9,7 @@ function noResultsFound() {
 }
 
 //BEGIN FUNCTIONS FOR SEARCH_RESULTS.PHP - GETTING AREA BREAKDOWN INFORMATION
+//GET CONSTITUENCY FROM API
 function getConstituency(constit_code) {
     var requestURL = "https://data.parliament.scot/api/constituencies";
 
@@ -26,6 +30,7 @@ function getConstituency(constit_code) {
     });
 }
 
+//GET MSP PERSON ID FOR SELECTED CONSTITUENCY
 function getPersonID(constit_id) {
     var requestURL = "https://data.parliament.scot/api/MemberElectionConstituencyStatuses";
 
@@ -44,6 +49,7 @@ function getPersonID(constit_id) {
     });
 }
 
+//GET MSP DETAILS USING PERSON ID
 function getMSP(personID) {
     var requestURL = "https://data.parliament.scot/api/members?ID=" + personID;
 
@@ -54,11 +60,13 @@ function getMSP(personID) {
     req.done(function (msp) {
         console.log(msp);
         mspID = msp.PersonID;
-        $('<p/>', { text: 'MSP: ' + formatMSPName(msp.ParliamentaryName) }).appendTo('#content');
+        $('<div/>', { id: 'mspContainer', class: 'msp-box' }).appendTo('#content');
+        $('<p/>', { text: 'MSP: ' + formatMSPName(msp.ParliamentaryName) }).appendTo('#mspContainer');
         getMemberParty(msp.PersonID);
     });
 }
 
+//FORMAT MSP NAME
 function formatMSPName(name) {
     name = String(name);
     var index = name.indexOf(", ");
@@ -68,6 +76,7 @@ function formatMSPName(name) {
     return firstName + " " + secondName;
 }
 
+//GET THE PARTY ID OF MSP
 function getMemberParty(personID) {
     var requestURL = "https://data.parliament.scot/api/memberparties";
 
@@ -82,10 +91,10 @@ function getMemberParty(personID) {
                 getParty(member.PartyID);
             }
         });
-
     });
 }
 
+//GET THE ASSOCIATED POLITICAL PARTY
 function getParty(partyID) {
     var requestURL = "https://data.parliament.scot/api/parties?ID=" + partyID;
 
@@ -94,11 +103,12 @@ function getParty(partyID) {
         dataType: "json"
     });
     req.done(function (party) {
-        $('<p/>', { text: 'MSP Party: ' + party.ActualName }).appendTo('#content');
+        $('<p/>', { text: 'MSP Party: ' + party.ActualName }).appendTo('#mspContainer');
         getAddress(mspID);
     });
 }
 
+//GET MSP ADDRESS
 function getAddress(personID) {
     var requestURL = "https://data.parliament.scot/api/addresses";
 
@@ -107,31 +117,43 @@ function getAddress(personID) {
         dataType: "json"
     });
     req.done(function (data) {
+        //initialise address found as false
+        var addressFound = false;
+        //loop through all addresses
         $.each(data, function (index, address) {
-            if (address.PersonID == personID) {
-                if (address.AddressType = 2) {
-                    console.log(address);
-                    $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#content');
-                    $('<h3/>', { text: ward + ' - Area Statistics' }).appendTo('#content');
-                    drawCharts(address.PostCode);
-                }
-                else if (address.AddressType = 1) {
-                    console.log(address);
-                    $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#content');
-                    $('<h3/>', { text: ward + ' - Area Statistics' }).appendTo('#content');
-                    drawCharts(address.PostCode);
-                }
-
+            //if MSP person ID matches, address has not already been found and address is type 2 (personal address ID)
+            if (address.PersonID == personID && addressFound == false && address.AddressTypeID == 2) {
+                console.log(address);
+                $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#mspContainer');
+                $('<h3/>', { text: ward + ' - Area Statistics' }).appendTo('#content');
+                addressFound = true;
+                drawCharts(address.PostCode);
             }
         });
+
+        //if address has not been found after the first iteration of address
+        //then the MSP does not have a personal address - we can use the Scottish Parliament office address
+        if (addressFound == false) {
+            //loop through addresses
+            $.each(data, function (index, address) {
+                //if MSP person ID matches, address has not already been found and address is type 1 (Scottish Parliament office address)
+                if (address.PersonID == personID && addressFound == false && address.AddressTypeID == 1) {
+                    console.log(address);
+                    $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#mspContainer');
+                    $('<h3/>', { text: ward + ' - Area Statistics' }).appendTo('#content');
+                    addressFound = true;
+                    drawCharts(address.PostCode);
+                }
+            });
+        }
 
     });
 }
 
+//DRAW JOBS BREAKDOWN CHART ONTO SCREEN
 function drawCharts(postcode) {
-    $('<div/>', { id: 'chartContainer', class: 'wrapper' }).appendTo('#content');
-    $('<div/>', { id: 'one' }).appendTo('#chartContainer');
-    $('<div/>', { id: 'two' }).appendTo('#chartContainer');
+    $('<div/>', { id: 'chartContainer', style: 'padding-bottom: 500px;' }).appendTo('#content');
+    //$('<div/>', { id: 'one' }).appendTo('#chartContainer');
 
     var requestURL = "http://api.lmiforall.org.uk/api/v1/census/jobs_breakdown?area=" + postcode;
 
@@ -146,7 +168,7 @@ function drawCharts(postcode) {
             breakdownData.push({ y: data.jobsBreakdown[element].percentage, label: data.jobsBreakdown[element].description });
         }
 
-        var chart = new CanvasJS.Chart("one", {
+        var chart = new CanvasJS.Chart("chartContainer", {
             title: {
                 text: "Job Breakdown", fontFamily: 'Roboto'
             },
@@ -171,12 +193,14 @@ function drawCharts(postcode) {
 }
 //END SEARCH_RESULTS.PHP FUNCTIONS
 
+//CHECK IF USER INPUT IS VALID POSTCODE
 function isValidPostcode(p) {
     var postcodeRegEx = /[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}/i;
     return postcodeRegEx.test(p);
 }
 
 //BEGIN FUNCTIONS FOR VACANCIES_RESULTS.PHP
+//GET VACANCIES FOR USER SELECTED JOB AND/OR POSTCODE
 function getVacancies(postcode, job) {
     // if the input string contains a blank space 
     if (job.indexOf(' ') >= 0) {
@@ -214,6 +238,7 @@ function getVacancies(postcode, job) {
 
     });
 
+    //DISPLAY VACANCIES ON SCREEN
     function displayVacancies(vacancies) {
         for (var i = 0; i < vacancies.length; i++) {
             $('<div/>', { class: 'vacancy', id: 'vacancy' + i }).appendTo('#content');

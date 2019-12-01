@@ -277,3 +277,10 @@ ul.breadcrumb li a:hover {
 }
 
 @media screen and (max-width: 400px){.vacancy{font-size: 0.71em;}}
+
+.msp-box{
+	border: 1px solid #222e50;
+  border-radius: 5px !important;
+  padding: 10px 30px 10px 30px;
+  margin-bottom: 20px;
+}
