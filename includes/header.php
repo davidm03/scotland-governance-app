@@ -13,11 +13,16 @@
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
   
   <link rel="stylesheet" href="css/website.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
 
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="http://code.highcharts.com/maps/highmaps.js"></script>
+  <script src="https://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+
 </head>
 <body>
   <div class="container" id="container">    

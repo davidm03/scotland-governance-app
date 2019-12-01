@@ -1,0 +1,11 @@
+.testSVG path:hover{
+    opacity: 0.6 !important;
+}
+.testSVG{max-width: 100%;}
+
+#tooltip {
+    background: cornsilk;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+  }

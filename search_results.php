@@ -204,6 +204,7 @@ $(document).ready(function() {
                 }]
             });
             chart.render();
+
             $(".pre-load").fadeOut("slow");                
             });            
         }
