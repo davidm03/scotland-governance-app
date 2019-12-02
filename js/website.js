@@ -64,8 +64,8 @@ function getMSP(personID) {
         $('<div/>', { id: 'mspContainer', class: 'wrapper' }).appendTo('#content');
         $('<div/>', { id: 'one' }).appendTo('#mspContainer');
         $('<div/>', { id: 'two' }).appendTo('#mspContainer');
-        $('<p/>', { text: 'MSP: ' + formatMSPName(msp.ParliamentaryName) }).appendTo('#one');
-        $('<img/>', { src: msp.PhotoURL, style: 'width: 500px; height: 300px;', id: 'mspPhoto' }).appendTo('#two');
+        $('<p/>', { text: 'Name: ' + formatMSPName(msp.ParliamentaryName) }).appendTo('#one');
+        $('<img/>', { src: msp.PhotoURL, style: 'width: 500px; height: 300px;', id: 'mspPhoto', title: 'MSP' + formatMSPName(msp.ParliamentaryName) + ' Photo' }).appendTo('#two');
         getMemberParty(msp.PersonID);
     });
 }
@@ -107,7 +107,7 @@ function getParty(partyID) {
         dataType: "json"
     });
     req.done(function (party) {
-        $('<p/>', { text: 'MSP Party: ' + party.ActualName }).appendTo('#one');
+        $('<p/>', { text: 'Political Party: ' + party.ActualName }).appendTo('#one');
         getAddress(mspID);
     });
 }
@@ -128,7 +128,7 @@ function getAddress(personID) {
             //if MSP person ID matches, address has not already been found and address is type 2 (personal address ID)
             if (address.PersonID == personID && addressFound == false && address.AddressTypeID == 2) {
                 console.log(address);
-                $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#one');
+                $('<p/>', { text: 'Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#one');
                 $('<h3/>', { id: 'areaStatsHeading', text: 'Area Statistics' }).appendTo('#content');
                 addressFound = true;
                 drawCharts(address.PostCode);
@@ -192,8 +192,33 @@ function drawCharts(postcode) {
         });
         chart.render();
 
+        $('<center/>', { id: 'btnCenter' }).appendTo('#content');
+        $('<input/>', { id: 'btnOccupations', type: 'submit', value: 'Search Occupations', style: 'margin-right: 10px;' }).appendTo('#btnCenter');
+        document.getElementById('btnOccupations').onclick = function () {
+            location.href = 'occupations.php';
+        }
+        $('<input/>', { id: 'btnFindVacancies', type: 'submit', value: 'Find Vacancies In ' + ward, style: 'margin-left: 10px;' }).appendTo('#btnCenter');
+        document.getElementById('btnFindVacancies').onclick = function () {
+            findVacancies(postcode);
+        }
         $(".pre-load").fadeOut("slow");
     });
+}
+
+function findVacancies(postcode) {
+    var hiddenForm = document.createElement('form');
+    hiddenForm.action = 'vacancies.php';
+    hiddenForm.method = 'POST';
+
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'postcode';
+    input.value = postcode;
+
+    hiddenForm.appendChild(input);
+
+    document.body.appendChild(hiddenForm);
+    hiddenForm.submit();
 }
 //END SEARCH_RESULTS.PHP FUNCTIONS
 

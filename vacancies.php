@@ -1,4 +1,8 @@
-<?php include("includes/header.php");?>
+<?php 
+include("includes/header.php");
+if(isset($_POST['postcode'])){
+  $postcode = $_POST['postcode'];
+}?>
 
 <article class="content">
     <ul class="breadcrumb">
@@ -14,13 +18,22 @@
       <label style="padding-left: 30px;">Enter Job Title:</label> 
       <input type="text" name="jobInput" style="margin: 10px 30px 0 30px;" required><br>
       <label style="padding-left: 30px;">Enter Postcode:</label> 
-      <input type="text" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
+      <input type="text" id="txtPostcode" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
       <div style="text-align: center; padding: 10px 0;"><input type="submit" value="Submit"></div>
     </form>
     </div>
-
-    
-
 </article>
+
+<script>
+  $(document).ready(function(){
+    var postcode = '<?php echo $postcode?>';
+
+    if(postcode!=""){
+      $('#txtPostcode').val(postcode);
+    }
+  });
+</script>
+
+
 <?php include("includes/aside.php");?>
 <?php include("includes/footer.php");?>

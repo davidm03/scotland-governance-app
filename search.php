@@ -1,4 +1,6 @@
-<?php include("includes/header.php");?>
+<?php 
+include("includes/header.php");
+?>
 
 <article class="content">
     <ul class="breadcrumb">
@@ -17,9 +19,7 @@
 
     <p style="padding: 0 30px; text-align: center;">View our interactive Scottish constituencies map <a href="map.php">here</a></p> 
     </div>
-
-    
-
 </article>
+
 <?php include("includes/aside.php");?>
 <?php include("includes/footer.php");?>

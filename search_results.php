@@ -78,7 +78,7 @@ $(document).ready(function() {
             else{
                 var mapInput = '<?php echo $map_input?>';
                 getConstituency(mapInput);
-            }            
+            }
 });
 </script>
 

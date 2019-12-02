@@ -31,6 +31,13 @@
 
 @media screen and (max-width:400px) {
   #mspPhoto{width: 400px;}
+  #btnOccupations{margin-right: 0; margin-bottom: 10px;}
+  #btnFindVacancies{margin-left: 0;}
+}
+
+@media screen and (max-width: 766px){
+  #btnOccupations{margin-right:0; margin-bottom: 10px;}
+  #btnFindVacancies{margin-left:0;}
 }
 
 @media screen and (max-width:5000px) {
