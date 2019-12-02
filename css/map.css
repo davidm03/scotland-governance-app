@@ -18,15 +18,21 @@
     height: 900px;
 }
 
-@media screen and (max-width:375px){
+@media screen and (max-width:1070px){
     .mapContainer{
-        width: 345px;
+        width: 600px;
         height: auto;
     }
 }
-@media screen and (max-width:411px){
+@media screen and (max-width:880px){
     .mapContainer{
-        width: 411px;
+        width: 450px;
+        height: auto;
+    }
+}
+@media screen and (max-width:800px){
+    .mapContainer{
+        width: 400px;
         height: auto;
     }
 }
@@ -36,15 +42,15 @@
         height: auto;
     }
 }
-@media screen and (max-width:786px){
+@media screen and (max-width:411px){
     .mapContainer{
-        width: 450px;
+        width: 380px;
         height: auto;
     }
 }
-@media screen and (max-width:1024px){
+@media screen and (max-width:375px){
     .mapContainer{
-        width: 400px;
+        width: 340px;
         height: auto;
     }
 }

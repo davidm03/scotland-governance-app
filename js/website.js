@@ -60,8 +60,12 @@ function getMSP(personID) {
     req.done(function (msp) {
         console.log(msp);
         mspID = msp.PersonID;
-        $('<div/>', { id: 'mspContainer', class: 'msp-box' }).appendTo('#content');
-        $('<p/>', { text: 'MSP: ' + formatMSPName(msp.ParliamentaryName) }).appendTo('#mspContainer');
+        $('<h3/>', { id: 'mspHeading', text: 'MSP Details' }).appendTo('#content');
+        $('<div/>', { id: 'mspContainer', class: 'wrapper' }).appendTo('#content');
+        $('<div/>', { id: 'one' }).appendTo('#mspContainer');
+        $('<div/>', { id: 'two' }).appendTo('#mspContainer');
+        $('<p/>', { text: 'MSP: ' + formatMSPName(msp.ParliamentaryName) }).appendTo('#one');
+        $('<img/>', { src: msp.PhotoURL, style: 'width: 500px; height: 300px;', id: 'mspPhoto' }).appendTo('#two');
         getMemberParty(msp.PersonID);
     });
 }
@@ -103,7 +107,7 @@ function getParty(partyID) {
         dataType: "json"
     });
     req.done(function (party) {
-        $('<p/>', { text: 'MSP Party: ' + party.ActualName }).appendTo('#mspContainer');
+        $('<p/>', { text: 'MSP Party: ' + party.ActualName }).appendTo('#one');
         getAddress(mspID);
     });
 }
@@ -124,8 +128,8 @@ function getAddress(personID) {
             //if MSP person ID matches, address has not already been found and address is type 2 (personal address ID)
             if (address.PersonID == personID && addressFound == false && address.AddressTypeID == 2) {
                 console.log(address);
-                $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#mspContainer');
-                $('<h3/>', { text: ward + ' - Area Statistics' }).appendTo('#content');
+                $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#one');
+                $('<h3/>', { id: 'areaStatsHeading', text: 'Area Statistics' }).appendTo('#content');
                 addressFound = true;
                 drawCharts(address.PostCode);
             }
@@ -139,8 +143,8 @@ function getAddress(personID) {
                 //if MSP person ID matches, address has not already been found and address is type 1 (Scottish Parliament office address)
                 if (address.PersonID == personID && addressFound == false && address.AddressTypeID == 1) {
                     console.log(address);
-                    $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#mspContainer');
-                    $('<h3/>', { text: ward + ' - Area Statistics' }).appendTo('#content');
+                    $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#one');
+                    $('<h3/>', { id: 'areaStatsHeading', text: 'Area Statistics' }).appendTo('#content');
                     addressFound = true;
                     drawCharts(address.PostCode);
                 }

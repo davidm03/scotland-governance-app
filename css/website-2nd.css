@@ -28,3 +28,14 @@
         margin-bottom: 30px;
     }
 }
+
+@media screen and (max-width:400px) {
+  #mspPhoto{width: 400px;}
+}
+
+@media screen and (max-width:5000px) {
+  #areaStatsHeading{padding-top: 350px;}
+}
+@media screen and (max-width:1024px) {
+  #areaStatsHeading{padding-top: 10px;}
+}

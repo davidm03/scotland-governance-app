@@ -82,6 +82,8 @@ $(document).ready(function() {
 });
 </script>
 
+<link rel="stylesheet" href="css/website-2nd.css">
+
 
 <?php 
 include("includes/aside.php");
