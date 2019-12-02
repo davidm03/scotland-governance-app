@@ -170,7 +170,7 @@ function getAddress(personID) {
             if (address.PersonID == personID && addressFound == false && address.AddressTypeID == 2) {
                 console.log(address);
                 $('<p/>', { text: 'Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#one');
-                $('<h3/>', { id: 'areaStatsHeading', text: 'Area Statistics' }).appendTo('#content');
+                $('<h3/>', { id: 'areaStatsHeading', text: 'Occupations Statistics' }).appendTo('#content');
                 addressFound = true;
                 drawCharts(address.PostCode);
             }
@@ -185,7 +185,7 @@ function getAddress(personID) {
                 if (address.PersonID == personID && addressFound == false && address.AddressTypeID == 1) {
                     console.log(address);
                     $('<p/>', { text: 'MSP Address: ' + address.Line1 + ", " + address.Line2 + " " + address.PostCode }).appendTo('#one');
-                    $('<h3/>', { id: 'areaStatsHeading', text: 'Area Statistics' }).appendTo('#content');
+                    $('<h3/>', { id: 'areaStatsHeading', text: 'Occupations Statistics' }).appendTo('#content');
                     addressFound = true;
                     drawCharts(address.PostCode);
                 }
@@ -242,24 +242,16 @@ function drawCharts(postcode) {
         document.getElementById('btnFindVacancies').onclick = function () {
             findVacancies(postcode);
         }
+
+        $('<h3/>', { text: 'Schooling Statistics' }).appendTo('#content');
+        $('<h4/>', { text: 'Coming Soon', style: 'text-align: center;' }).appendTo('#content');
+        $('<h3/>', { text: 'Health Statistics' }).appendTo('#content');
+        $('<h4/>', { text: 'Coming Soon', style: 'text-align: center;' }).appendTo('#content');
+        $('<h3/>', { text: 'Social Care Statistics' }).appendTo('#content');
+        $('<h4/>', { text: 'Coming Soon', style: 'text-align: center;' }).appendTo('#content');
+
         $(".pre-load").fadeOut("slow");
     });
-}
-
-function findVacancies(postcode) {
-    var hiddenForm = document.createElement('form');
-    hiddenForm.action = 'vacancies.php';
-    hiddenForm.method = 'POST';
-
-    var input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = 'postcode';
-    input.value = postcode;
-
-    hiddenForm.appendChild(input);
-
-    document.body.appendChild(hiddenForm);
-    hiddenForm.submit();
 }
 //END SEARCH_RESULTS.PHP FUNCTIONS
 
