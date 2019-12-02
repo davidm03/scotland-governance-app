@@ -9,13 +9,15 @@
     </ul>
     <h1>Constituency Map</h1>    
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem. </p>
+    <center>
     <div class="mapContainer">
         <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
         <?php echo file_get_contents("images/map.svg")?>
     </div>
+    </center>
 </article>
 
-<script>
+<!-- <script>
     var panZoomMap = svgPanZoom('#svg10');
 
     svgPanZoom('#svg10', {
@@ -33,7 +35,7 @@
     , center: true
     , refreshRate: 'auto'
     });
-</script>
+</script> -->
 <script>
     function showTooltip(evt, text) {
   let tooltip = document.getElementById("tooltip");

@@ -11,4 +11,40 @@
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
-  }
+}
+
+.mapContainer{
+    width: 700px;
+    height: 900px;
+}
+
+@media screen and (max-width:375px){
+    .mapContainer{
+        width: 345px;
+        height: auto;
+    }
+}
+@media screen and (max-width:411px){
+    .mapContainer{
+        width: 411px;
+        height: auto;
+    }
+}
+@media screen and (max-width:414px){
+    .mapContainer{
+        width: 414px;
+        height: auto;
+    }
+}
+@media screen and (max-width:786px){
+    .mapContainer{
+        width: 450px;
+        height: auto;
+    }
+}
+@media screen and (max-width:1024px){
+    .mapContainer{
+        width: 400px;
+        height: auto;
+    }
+}
