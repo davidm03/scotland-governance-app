@@ -5,7 +5,7 @@
         <li><a href="index.php">Home</a></li>        
         <li>About</li>
     </ul>
-    <h1>About</h1>    
+    <i class="fa fa-info-circle fa-lg icon"></i><h1>About</h1>   
     <p>
         We are a non-profit Scottish charity organisation, who aim to encourage more members of the general population to take a more active role in the governance of the country. 
         <br><br>
@@ -16,9 +16,9 @@
     <div id="dataSourcesContainer" class="thinborder" style="padding-bottom: 30px;">
         <h3 style="text-align: center;">Learn More About Our Data Sources</h3>
         <div id="flickityCarousel" class="carousel js-flickity" data-flickity-options='{ "imagesLoaded": true }' style="margin: 0 100px;">
-            <img class="carousel-cell-image" src="images/data_source_logos/scottish_parliament_logo.png" alt="Scottish Parliament Logo" />
-            <img class="carousel-cell-image" src="images/data_source_logos/lmi-for-all-logo.png" alt="LMI For All Logo" />
-            <img class="carousel-cell-image" src="images/data_source_logos/postcodes-io-logo.png" alt="Postcodes IO Logo" />
+            <a class="carousel-cell-image" href="https://data.parliament.scot/" target="_blank" style="margin: 50px;">Scottish Parliament</a>
+            <a class="carousel-cell-image" href="http://api.lmiforall.org.uk/" target="_blank" style="margin: 50px;">LMI For All</a>
+            <a class="carousel-cell-image" href="https://postcodes.io/" target="_blank" style="margin: 50px;">Postcodes.io</a>
         </div>
     </div>
 </article>

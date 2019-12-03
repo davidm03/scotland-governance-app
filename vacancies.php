@@ -10,7 +10,7 @@ if(isset($_POST['postcode'])){
         <li><a href="occupations.php">Occupations</a></li>          
         <li>Search Vacancies</li>
     </ul>
-    <h1>Search Vacancies</h1>    
+    <i class="fa fa-search fa-lg icon"></i><h1>Search Vacancies</h1>    
     <p>
       Enter a job title below to find any current vacancies for that occupation.
       <br><br>

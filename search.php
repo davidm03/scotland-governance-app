@@ -7,7 +7,7 @@ include("includes/header.php");
         <li><a href="index.php">Home</a></li>        
         <li>Search By Postcode</li>
     </ul>
-    <h1>Search By Postcode</h1>    
+    <i class="fa fa-search fa-lg icon"></i><h1>Search By Postcode</h1>   
     <p>Enter a postcode below to find out more information about the area and it's current elected Scottish Parliament representative, employment in the area and other statistics.</p>
     <div class="thinborder" style="padding-bottom: 20px; padding-top: 10px;">
     <form method="POST" action="search_results.php">

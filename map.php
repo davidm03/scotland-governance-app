@@ -7,6 +7,7 @@
         <li><a href="index.php">Home</a></li>        
         <li>Constituency Map</li>
     </ul>
+    <i class="fa fa-map fa-lg icon"></i><h1>Constituency Map</h1>
     <p>
         Our constituency map below, shows a map of Scotland with all Scottish Parliamentary constituencies marked out and coloured with the current elected representatives political party colour.
         <br><br>
@@ -20,25 +21,6 @@
     </center>
 </article>
 
-<!-- <script>
-    var panZoomMap = svgPanZoom('#svg10');
-
-    svgPanZoom('#svg10', {
-    viewportSelector: '.svg-pan-zoom_viewport'
-    , panEnabled: true
-    , controlIconsEnabled: true
-    , zoomEnabled: true
-    , dblClickZoomEnabled: true
-    , preventMouseEventsDefault: true
-    , zoomScaleSensitivity: 0.2
-    , minZoom: 0.5
-    , maxZoom: 10
-    , fit: true
-    , contain: false
-    , center: true
-    , refreshRate: 'auto'
-    });
-</script> -->
 <script>
     function showTooltip(evt, text) {
   let tooltip = document.getElementById("tooltip");

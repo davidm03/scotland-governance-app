@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html lang="en-gb">
 <head>
-  <title>Website</title>
+  <title>Charity Website</title>
   <meta name="description" content="A website to provide Scottish constituency and occupational information.">
   <meta name="language" content="English">
   <meta name="keywords" content="Website">
@@ -16,14 +16,14 @@
   <link rel="stylesheet" href="css/website.css">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 </head>
 <body>
   <div class="container" id="container">    
     <header class="main-head">
       <div class="topnav1" id="navTop">
         <a href="index.php"><img src="https://via.placeholder.com/150x100" id="websiteLogo" alt="Website Logo Placeholder" title="Placeholder Image for the Website Logo"></a>
-        <div id="websiteNameText"><a href="index.php" class="white-link-text">Website Name</a></div>
+        <div id="websiteNameText"><a href="index.php" class="white-link-text">Charity Website</a></div>
       </div>
 
       <div class="topnav" id="navBottom">

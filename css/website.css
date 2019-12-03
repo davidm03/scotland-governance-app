@@ -56,7 +56,9 @@ body {
     margin: 0;
 }
 h1 {
-  color: #222e50
+  color: #222e50;
+  display: inline-block; 
+  vertical-align: middle;
 }
 h4 {
   padding: 0;
@@ -240,7 +242,18 @@ input[type=submit]:hover {
   display: block;
   height: 200px;
 }
-
+.carousel a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.carousel a:hover{
+  text-decoration: underline;
+}
+.icon {
+  padding: 0 10px 0 0px;
+  color: #222e50;
+}
 /* Breadcrumb Styling */
 /* Style the list */
 ul.breadcrumb {
