@@ -11,10 +11,9 @@
     <div id="dataSourcesContainer" class="thinborder" style="padding-bottom: 30px;">
         <h3 style="text-align: center;">Learn More About Our Data Sources</h3>
         <div id="flickityCarousel" class="carousel js-flickity" data-flickity-options='{ "imagesLoaded": true }' style="margin: 0 100px;">
-            <img class="carousel-cell-image" src="https://via.placeholder.com/200x200" alt="tulip" />
-            <img class="carousel-cell-image" src="https://via.placeholder.com/200x200" alt="tulip" />
-            <img class="carousel-cell-image" src="https://via.placeholder.com/200x200" alt="tulip" />
-            <img class="carousel-cell-image" src="https://via.placeholder.com/200x200" alt="tulip" />
+            <img class="carousel-cell-image" src="images/data_source_logos/scottish_parliament_logo.png" alt="Scottish Parliament Logo" />
+            <img class="carousel-cell-image" src="images/data_source_logos/lmi-for-all-logo.png" alt="LMI For All Logo" />
+            <img class="carousel-cell-image" src="images/data_source_logos/postcodes-io-logo.png" alt="Postcodes IO Logo" />
         </div>
     </div>
 </article>
