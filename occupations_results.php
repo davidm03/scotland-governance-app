@@ -3,6 +3,8 @@ include("includes/header.php");
 $search_input = $_POST['jobInput'];
 ?>
 
+<script src="js/occupations_results.js"></script>
+
 <style>
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }

@@ -69,7 +69,11 @@ img {
 p {
   text-align: justify;
 }
-
+#websiteNameText {
+  font-size: 3em; 
+  color: #ffffff; 
+  margin-left: 30px;
+}
 /* Colours */
 .dark-blue {
     background-color: #222e50;
@@ -82,6 +86,10 @@ p {
 }
 .light-blue-text {
     color: #007bff;
+}
+.white-link-text{
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* Custom Menu Stylings */
@@ -188,7 +196,24 @@ input[type=text] {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   padding: 5px;
+  width: calc(100% - 75px);
 }
+#inputPostcode {
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+@media screen and (max-width: 5000px){#inputPostcode{width: 10%;}}
+@media screen and (max-width: 700px){#inputPostcode{width: calc(100% - 75px);}}
+#jobTitleInput {
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+@media screen and (max-width: 5000px){#jobTitleInput{width: 40%;}}
+@media screen and (max-width: 700px){#jobTitleInput{width: calc(100% - 75px);}}
 input[type=text]:focus {border-color:#222e50; }  
 input[type=submit] {
   padding:8px 15px; 

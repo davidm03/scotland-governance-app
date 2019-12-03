@@ -8,6 +8,8 @@ if(isset($_POST['postcodeInput'])){
 
 ?>
 
+<script src="js/vacancies_results.js"></script>
+
 <style>
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }

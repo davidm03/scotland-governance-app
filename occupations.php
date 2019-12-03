@@ -17,32 +17,5 @@
     </div>
 </article>
 
-<!-- <script>
-$(document).ready(function() {
-    $("#occupationSearch").submit(function(event) {
-        event.preventDefault();
-        var input = $('#jobTitleInput').val();
-
-        // if the input string contains a blank space 
-        if(input.indexOf(' ')>=0) {
-            // encode the URI component to replace the blank space with '%20' 
-            input = encodeURIComponent(input.trim())
-        }
-
-        var requestURL = "http://api.lmiforall.org.uk/api/v1/soc/search?q=" + input;
-
-        console.log(requestURL);
-
-        var req = $.ajax({
-        url: requestURL,
-        dataType: "jsonp"
-    });
-        req.done(function(data){
-            console.log(data);
-        });            
-    });
-});
-</script> -->
-
 <?php include("includes/aside.php");?>
 <?php include("includes/footer.php");?>

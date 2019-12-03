@@ -13,12 +13,12 @@ if(isset($_POST['postcode'])){
     <h1>Search Vacancies</h1>    
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem.</p>
 
-    <div class="thinborder" style="padding-bottom: 20px;">
+    <div class="thinborder" style="padding: 20px 0;">
     <form method="POST" action="vacancies_results.php">
-      <label style="padding-left: 30px;">Enter Job Title:</label> 
-      <input type="text" name="jobInput" style="margin: 10px 30px 0 30px;" required><br>
+      <label style="padding-left: 30px;">Enter Job Title :</label> 
+      <input type="text" id="jobTitleInput" name="jobInput" style="margin: 10px 30px 0 30px;" required><br>
       <label style="padding-left: 30px;">Enter Postcode:</label> 
-      <input type="text" id="txtPostcode" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
+      <input type="text" id="inputPostcode" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
       <div style="text-align: center; padding: 10px 0;"><input type="submit" value="Submit"></div>
     </form>
     </div>
@@ -29,7 +29,7 @@ if(isset($_POST['postcode'])){
     var postcode = '<?php echo $postcode?>';
 
     if(postcode!=""){
-      $('#txtPostcode').val(postcode);
+      $('#inputPostcode').val(postcode);
     }
   });
 </script>
