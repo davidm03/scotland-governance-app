@@ -8,8 +8,7 @@ include("includes/header.php");
         <li>Search By Postcode</li>
     </ul>
     <h1>Search By Postcode</h1>    
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem.</p>
-
+    <p>Enter a postcode below to find out more information about the area and it's current elected Scottish Parliament representative, employment in the area and other statistics.</p>
     <div class="thinborder" style="padding-bottom: 20px; padding-top: 10px;">
     <form method="POST" action="search_results.php">
       <label style="padding-left: 30px;">Enter your postcode:</label> 

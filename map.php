@@ -7,8 +7,11 @@
         <li><a href="index.php">Home</a></li>        
         <li>Constituency Map</li>
     </ul>
-    <h1>Constituency Map</h1>    
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem. </p>
+    <p>
+        Our constituency map below, shows a map of Scotland with all Scottish Parliamentary constituencies marked out and coloured with the current elected representatives political party colour.
+        <br><br>
+        Areas coloured yellow are held by the Scottish National Party, blue are held by the Conservative and Unionist Party, orange by the Liberal Democrats, red by Labour and grey by an independant MSP. 
+    </p>
     <center>
     <div class="mapContainer">
         <div id="tooltip" display="none" style="position: absolute; display: none;"></div>

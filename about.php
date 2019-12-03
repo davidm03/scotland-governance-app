@@ -6,8 +6,13 @@
         <li>About</li>
     </ul>
     <h1>About</h1>    
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem. Sed vel sapien urna. Nunc libero nisi, dapibus quis orci in, dictum dapibus arcu. Maecenas lobortis eget dui ac euismod. Vestibulum sit amet congue ligula. Vestibulum sem massa, vulputate ornare magna et, pellentesque pretium purus. Proin condimentum egestas dolor, vitae efficitur elit placerat sit amet. Ut eget suscipit sapien. Nulla lacinia turpis non sapien suscipit mollis. Fusce eros lacus, pretium ut pellentesque in, mollis feugiat lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum gravida nisi libero, sit amet dictum purus dictum sed. Pellentesque ornare dignissim arcu, sit amet lacinia lorem euismod et. Aenean non nulla dapibus, eleifend massa eu, tincidunt lectus.</p>
-
+    <p>
+        We are a non-profit Scottish charity organisation, who aim to encourage more members of the general population to take a more active role in the governance of the country. 
+        <br><br>
+        Our information web resource will provide an interactive and easy to use format, and allow users to enter information or make use of an interactive map to display relevant information in an easy to understand format.
+        <br><br>
+        You can find out more about where we get our information from, by viewing our data sources located below. 
+    </p>
     <div id="dataSourcesContainer" class="thinborder" style="padding-bottom: 30px;">
         <h3 style="text-align: center;">Learn More About Our Data Sources</h3>
         <div id="flickityCarousel" class="carousel js-flickity" data-flickity-options='{ "imagesLoaded": true }' style="margin: 0 100px;">

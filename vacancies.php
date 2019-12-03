@@ -11,11 +11,15 @@ if(isset($_POST['postcode'])){
         <li>Search Vacancies</li>
     </ul>
     <h1>Search Vacancies</h1>    
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem.</p>
+    <p>
+      Enter a job title below to find any current vacancies for that occupation.
+      <br><br>
+      If you wish to find vacancies in your current area, then you can also enter your postcode to find vacancies close to you.
+    </p>
 
     <div class="thinborder" style="padding: 20px 0;">
     <form method="POST" action="vacancies_results.php">
-      <label style="padding-left: 30px;">Enter Job Title :</label> 
+      <label style="padding-left: 30px;">Enter Job Title:*</label> 
       <input type="text" id="jobTitleInput" name="jobInput" style="margin: 10px 30px 0 30px;" required><br>
       <label style="padding-left: 30px;">Enter Postcode:</label> 
       <input type="text" id="inputPostcode" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>

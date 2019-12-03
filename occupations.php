@@ -6,8 +6,7 @@
         <li>Occupations</li>
     </ul>
     <h1>Occupations</h1>    
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam risus, lobortis et sem sit amet, auctor pulvinar sapien. Morbi tincidunt cursus ante sit amet dictum. Donec enim urna, eleifend lobortis mauris ac, sodales maximus lorem.</p>
-
+    <p>Enter a job title below to find out more information about that occupation, including information about the current estimated pay and any annual changes in pay.</p>
     <div class="thinborder" style="padding: 20px 0;">
     <form id="occupationSearch" method="POST" action="occupations_results.php">
       <label style="padding-left: 30px;">Enter job title:</label> 
