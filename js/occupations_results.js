@@ -35,6 +35,7 @@ function populatePage(result) {
     drawAnnualChangeGraph();
 
     //FUNCTION TO DRAW THE ESTIMATED PAY GRAPH TO SCREEN
+    //AVAILABLE FROM - https://canvasjs.com/html5-javascript-column-chart/
     function drawEstimatedPayGraph() {
         var estPayApi = "http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=" + result.soc;
         var estPayReq = $.ajax({
@@ -67,6 +68,7 @@ function populatePage(result) {
     }
 
     //FUNCTION TO DRAW ANNUAL CHANGE GRAPH TO SCREEN
+    //AVAILABLE FROM https://canvasjs.com/html5-javascript-column-chart/
     function drawAnnualChangeGraph() {
         var changeApi = "http://api.lmiforall.org.uk/api/v1/ashe/annualChanges?soc=" + result.soc;
         var changeReq = $.ajax({

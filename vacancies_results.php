@@ -10,6 +10,8 @@ if(isset($_POST['postcodeInput'])){
 
 <script src="js/vacancies_results.js"></script>
 
+<!--Loading Annimation Code - cannot be moved to external file
+    Available from: https://smallenvelop.com/display-loading-icon-page-loads-completely/-->
 <style>
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
