@@ -1,3 +1,4 @@
+<!-- Aside Section for Quick Search and Quick Links -->
 <div id="asideContainer" style="margin-right: 30px;">
   <aside class="sideTop thinborder" style="margin-bottom: 30px;">
     <h4 style="text-align:center; padding: 10px 0;">Quick Search</h4>

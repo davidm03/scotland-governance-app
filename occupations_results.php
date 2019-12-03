@@ -21,6 +21,7 @@ $search_input = $_POST['jobInput'];
 }
 </style>
 
+<!-- Loading annimation -->
 <div class="pre-load"></div>
 
 <article class="content" id="content">
@@ -31,6 +32,7 @@ $search_input = $_POST['jobInput'];
     </ul>
 </article>
 
+<!-- Script to call the initial lookup function on document ready -->
 <script>
 $(document).ready(function() {
         var input = '<?php echo $search_input ?>';
@@ -41,6 +43,7 @@ $(document).ready(function() {
             input = encodeURIComponent(input.trim())
         } 
         
+        //call initial lookup function
         lookupOccupation(input);
 });
 </script>

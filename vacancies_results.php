@@ -38,6 +38,7 @@ if(isset($_POST['postcodeInput'])){
     <h1>Vacancies Results</h1>
 </article>
 
+<!-- Script to set variables and call initial lookup function on document ready -->
 <script>
 $(document).ready(function() {
     var txtJob = '<?php echo $job?>';

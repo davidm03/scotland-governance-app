@@ -13,6 +13,7 @@
         <br><br>
         You can find out more about where we get our information from, by viewing our data sources located below. 
     </p>
+    <!-- Flickity JavaScript Plugin Carousel -->
     <div id="dataSourcesContainer" class="thinborder" style="padding-bottom: 30px;">
         <h3 style="text-align: center;">Learn More About Our Data Sources</h3>
         <div id="flickityCarousel" class="carousel js-flickity" data-flickity-options='{ "imagesLoaded": true }' style="margin: 0 100px;">

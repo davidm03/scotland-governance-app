@@ -18,16 +18,17 @@ if(isset($_POST['postcode'])){
     </p>
 
     <div class="thinborder" style="padding: 20px 0;">
-    <form method="POST" action="vacancies_results.php">
-      <label style="padding-left: 30px;">Enter Job Title:*</label> 
-      <input type="text" id="jobTitleInput" name="jobInput" style="margin: 10px 30px 0 30px;" required><br>
-      <label style="padding-left: 30px;">Enter Postcode:</label> 
-      <input type="text" id="inputPostcode" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
-      <div style="text-align: center; padding: 10px 0;"><input type="submit" value="Submit"></div>
-    </form>
+      <form method="POST" action="vacancies_results.php">
+        <label style="padding-left: 30px;">Enter Job Title:*</label> 
+        <input type="text" id="jobTitleInput" name="jobInput" style="margin: 10px 30px 0 30px;" required><br>
+        <label style="padding-left: 30px;">Enter Postcode:</label> 
+        <input type="text" id="inputPostcode" name="postcodeInput" style="margin: 10px 30px 0 30px;"><br>
+        <div style="text-align: center; padding: 10px 0;"><input type="submit" value="Submit"></div>
+      </form>
     </div>
 </article>
 
+<!-- Script to autofill user postcode if redirected from search_results.php -->
 <script>
   $(document).ready(function(){
     var postcode = '<?php echo $postcode?>';

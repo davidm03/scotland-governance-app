@@ -40,6 +40,7 @@ else{
     </ul>
 </article>
 
+<!-- Script to get variables and call initial lookup function on document ready -->
 <script>
 $(document).ready(function() {
         var searchInput = '<?php echo $search_input ?>';

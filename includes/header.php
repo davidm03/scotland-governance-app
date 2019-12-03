@@ -21,7 +21,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 </head>
 <body>
-  <div class="container" id="container">    
+  <div class="container" id="container">  
+    <!-- Top Line of Navigation Bar -->  
     <header class="main-head">
       <div class="topnav1" id="navTop">
         <a href="index.php"><img src="https://via.placeholder.com/150x100" id="websiteLogo" alt="Website Logo Placeholder" title="Placeholder Image for the Website Logo"></a>
@@ -29,6 +30,7 @@
       </div>
 
       <!-- Navigation Bar - Available From https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
+      <!-- Bottom Line Navigation Bar -->
       <div class="topnav" id="navBottom">
         <a href="index.php" class="active">Home</a>
         <a href="about.php">About</a>
