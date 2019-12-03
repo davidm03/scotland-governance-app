@@ -12,6 +12,7 @@ else{
 ?>
 
 <script src="js/search_results.js"></script>
+<script src="js/vacancies_results.js"></script>
 
 <style>
 .no-js #loader { display: none;  }

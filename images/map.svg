@@ -660,7 +660,6 @@
 
                document.body.appendChild(hiddenForm);
                hiddenForm.submit();   
-                  //alert($(this).attr('id'));
             });
          });
    </script>

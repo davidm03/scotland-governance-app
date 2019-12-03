@@ -2,10 +2,13 @@
 
 //GET VACANCIES FOR USER SELECTED JOB AND/OR POSTCODE
 function getVacancies(postcode, job) {
-    // if the input string contains a blank space 
-    if (job.indexOf(' ') >= 0) {
-        // encode the URI component to replace the blank space with '%20' 
-        job = encodeURIComponent(job.trim())
+
+    if (job != null) {
+        // if the input string contains a blank space 
+        if (job.indexOf(' ') >= 0) {
+            // encode the URI component to replace the blank space with '%20' 
+            job = encodeURIComponent(job.trim())
+        }
     }
 
     if (postcode == "") {

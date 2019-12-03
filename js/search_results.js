@@ -231,7 +231,19 @@ function drawCharts(postcode) {
         }
         $('<input/>', { id: 'btnFindVacancies', type: 'submit', value: 'Find Vacancies In ' + ward, style: 'margin-left: 10px;' }).appendTo('#btnCenter');
         document.getElementById('btnFindVacancies').onclick = function () {
-            findVacancies(postcode);
+            var hiddenForm = document.createElement('form');
+            hiddenForm.action = 'vacancies.php';
+            hiddenForm.method = 'POST';
+
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'postcode';
+            input.value = postcode;
+
+            hiddenForm.appendChild(input);
+
+            document.body.appendChild(hiddenForm);
+            hiddenForm.submit();
         }
 
         $('<h3/>', { text: 'Schooling Statistics' }).appendTo('#content');
