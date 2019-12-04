@@ -1,11 +1,14 @@
 <?php 
 include("includes/header.php");
 
+//if constituency POST parameter is set
 if(isset($_POST['constituency'])){
+    //set map input variable to POST parameter and search input to null
     $map_input = $_POST['constituency'];
     $search_input=null;
 }
 else{
+    //set search input variable to POST paramter and map input to null
     $search_input = $_POST['postcodeInput'];
     $map_input=null;
 }
@@ -43,11 +46,13 @@ else{
 <!-- Script to get variables and call initial lookup function on document ready -->
 <script>
 $(document).ready(function() {
+        //initialise variables
         var searchInput = '<?php echo $search_input ?>';
         var mapInput = '<?php echo $map_input?>';        
         var ward;
         var mspID;           
 
+        //call lookup postcode function
         lookupPostcode(searchInput, mapInput);
 });
 </script>

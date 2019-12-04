@@ -1,11 +1,13 @@
 <?php 
 include("includes/header.php");
+//store job variable from POST parameter
 $job = $_POST['jobInput'];
 
+//if postcode POST paramater is set
 if(isset($_POST['postcodeInput'])){
+    //store postcode in variable
     $postcode = $_POST['postcodeInput'];
 }
-
 ?>
 
 <script src="js/vacancies_results.js"></script>
@@ -41,15 +43,14 @@ if(isset($_POST['postcodeInput'])){
 <!-- Script to set variables and call initial lookup function on document ready -->
 <script>
 $(document).ready(function() {
+    //initialise variables
     var txtJob = '<?php echo $job?>';
     var txtPostcode = '<?php echo $postcode?>';    
 
+    //call get vacancies function
     getVacancies(txtPostcode, txtJob);    
-
-    
 });
 </script>
-
 
 <?php 
 include("includes/aside.php");

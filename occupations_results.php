@@ -1,5 +1,6 @@
 <?php 
 include("includes/header.php");
+//store job input passed in as POST paramter
 $search_input = $_POST['jobInput'];
 ?>
 
@@ -35,6 +36,7 @@ $search_input = $_POST['jobInput'];
 <!-- Script to call the initial lookup function on document ready -->
 <script>
 $(document).ready(function() {
+        //get input from php variable
         var input = '<?php echo $search_input ?>';
 
         // if the input string contains a blank space 

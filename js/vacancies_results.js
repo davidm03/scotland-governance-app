@@ -2,7 +2,7 @@
 
 //GET VACANCIES FOR USER SELECTED JOB AND/OR POSTCODE
 function getVacancies(postcode, job) {
-
+    //if job does not equal null
     if (job != null) {
         // if the input string contains a blank space 
         if (job.indexOf(' ') >= 0) {
@@ -11,7 +11,9 @@ function getVacancies(postcode, job) {
         }
     }
 
+    //if postcode is blank
     if (postcode == "") {
+        //construct request URL
         var requestURL = "http://api.lmiforall.org.uk/api/v1/vacancies/search?keywords=" + job;
     }
     else {
@@ -20,22 +22,24 @@ function getVacancies(postcode, job) {
             // encode the URI component to replace the blank space with '%20' 
             postcode = encodeURIComponent(postcode.trim())
         }
+        //construct request URL
         var requestURL = "http://api.lmiforall.org.uk/api/v1/vacancies/search?location=" + postcode + "&keywords=" + job;
     }
-
-    console.log(requestURL);
-
+    //perform ajax call
     var req = $.ajax({
         url: requestURL,
         dataType: "jsonp"
     });
     req.done(function (data) {
         if (data && data.length > 0) {
-            console.log(data);
+            //if data exists and is not empty
+            //draw results found text to screen
             $('<p/>', { text: '(' + data.length + ') vacancies results found.' }).appendTo('#content');
+            //call display vacancies function
             displayVacancies(data);
         }
         else {
+            //call no results found function
             noResultsFound();
         }
 
@@ -43,7 +47,9 @@ function getVacancies(postcode, job) {
 
     //DISPLAY VACANCIES ON SCREEN
     function displayVacancies(vacancies) {
+        //loop through amount of vacancies returned
         for (var i = 0; i < vacancies.length; i++) {
+            //draw vacancy to screen
             $('<div/>', { class: 'vacancy', id: 'vacancy' + i }).appendTo('#content');
             $('<p/>', { text: 'Job ID: ' + vacancies[i].id }).appendTo('#vacancy' + i);
             $('<p/>', { text: 'Job Title: ' + vacancies[i].title }).appendTo('#vacancy' + i);
@@ -54,6 +60,7 @@ function getVacancies(postcode, job) {
             $('<center/>', { id: 'center' + i }).appendTo('#vacancy' + i);
             $('<input/>', { type: 'submit', value: 'View', onclick: "location.href=" + "'" + vacancies[i].link + "'" }).appendTo('#center' + i);
         }
+        //fadeout loading animation
         $(".pre-load").fadeOut("slow");
     }
 }

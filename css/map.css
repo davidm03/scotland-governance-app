@@ -1,3 +1,5 @@
+/* CSS STYLESHEET FOR CONSTITUENCY MAP */
+
 .mapSVG path:hover{
     opacity: 0.6 !important;
     cursor: pointer;

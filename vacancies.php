@@ -1,6 +1,8 @@
 <?php 
 include("includes/header.php");
+//if postcode POST parameter is set
 if(isset($_POST['postcode'])){
+  //store postcode in variable
   $postcode = $_POST['postcode'];
 }?>
 
@@ -31,9 +33,12 @@ if(isset($_POST['postcode'])){
 <!-- Script to autofill user postcode if redirected from search_results.php -->
 <script>
   $(document).ready(function(){
+    //initialise variable
     var postcode = '<?php echo $postcode?>';
 
+    //if postcode is not empty
     if(postcode!=""){
+      //auto fill postcode value on screen
       $('#inputPostcode').val(postcode);
     }
   });
