@@ -5,7 +5,7 @@ function noResultsFound() {
     //display no results found message on webpage
     $('<h1/>', { text: 'Sorry - No Results Could Be Found' }).appendTo('#content');
     $('<p/>', { id: 'txtError', text: 'You can return home by clicking the link ' }).appendTo('#content');
-    $('<a/>', { text: 'here' }).appendTo('#txtError');
+    $('<a/>', { text: 'here', href: 'index.php' }).appendTo('#txtError');
     $(".pre-load").fadeOut("slow");
 }
 
